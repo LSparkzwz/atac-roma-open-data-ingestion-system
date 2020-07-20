@@ -1,8 +1,10 @@
 from google.transit import gtfs_realtime_pb2
 from urllib.request import urlopen
+import os
 
 def update_feed():
 	feed = gtfs_realtime_pb2.FeedMessage()
-	response = urlopen('https://romamobilita.it/sites/default/files/rome_rtgtfs_trip_updates_feed.pb')
+	trip_updates_feed_url = os.environ['TRIP_UPDATES_FEED_URL']
+	response = urlopen(trip_updates_feed_url)
 	feed.ParseFromString(response.read())
 	return feed.entity
