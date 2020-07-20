@@ -12,8 +12,8 @@ Classifier: License :: OSI Approved :: Apache Software License
 Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Python
 Classifier: Topic :: Software Development :: Libraries :: Python Modules
-Requires-Dist: setuptools
 Requires-Dist: protobuf
+Requires-Dist: setuptools
 
 UNKNOWN
 
