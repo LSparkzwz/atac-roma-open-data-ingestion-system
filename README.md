@@ -1,5 +1,10 @@
-# Data Ingestion and Elaboration
-## Setup:
+## Atac Roma open data ingestion system
+Data ingestion system to analyze the status of public transports in Rome.
+The open data is given in real time by [Atac Roma](https://romamobilita.it/it/tecnologie/open-data).
+
+You can visualize an example of the results of the data elaboration [here](https://lsparkzwz.github.io/atacmonitor/), under Average waiting minutes, Longest waiting time and Average waiting time by Location and Waiting times divided by Rome districts and neighborhoods.
+
+### Setup:
 0. This project is meant to be run in a Standard AWS Account (a free trial standard account is fine).
 1. Clone the repository.
 
@@ -62,8 +67,6 @@ After following the setup steps you just need to run first Lambda you created an
 If you want the entire system to keep running on a fixed schedule you can use Amazon EventBridge to create a rule that runs the first Lambda on a fixed schedule.
 While the system runs by itself you just need to retrieve the results you find in the apposite bucket.
 
-### Example of data Visualization
-You can visualize an example of the results of the data elaboration [here](https://lsparkzwz.github.io/atacmonitor/), under Average waiting minutes, Longest waiting time and Average waiting time by Location and Waiting times divided by Rome districts and neighborhoods.
 
 
 
