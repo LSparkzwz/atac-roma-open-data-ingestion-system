@@ -3,6 +3,8 @@ Data ingestion system to analyze the status of public transports in Rome.
 
 The open data is given in real time by [Atac Roma](https://romamobilita.it/it/tecnologie/open-data).
 
+This project has been developed using [ATAC-Monitor](http://www.atacmonitor.com/) as an example of data ingestion infrastructure.
+
 You can visualize an example of the results of the data elaboration [here](https://lsparkzwz.github.io/atacmonitor/), under Average waiting minutes, Longest waiting time and Average waiting time by Location and Waiting times divided by Rome districts and neighborhoods.
 
 ### Setup:
