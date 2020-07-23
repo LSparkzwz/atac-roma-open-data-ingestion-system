@@ -1,4 +1,4 @@
-#Lambda evironment variables to configure in order to deploy the project in your aws account
+#Lambda evironment variables for lambda_function.py
 
 CASSANDRA_CLUSTER : the url of your cluster
 CASSANDRA_USERNAME : the username of the account that can manage the cluster
