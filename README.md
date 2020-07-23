@@ -4,26 +4,26 @@
 1. Clone the repository.
 
 ### AWS buckets
-3. Create three S3 buckets: 
--One for storing the data ingestion feed, 
--One for storing the Athena query results,
--One for storing static files.
+3. Create three S3 buckets:
+   * One for storing the data ingestion feed, 
+   * One for storing the Athena query results,
+   * One for storing static files.
 	
 4. In the root of the static files bucket create two folders: locations and routes,
-	Insert in the locations folder the locations.csv file found in the /static_files/locations/ folder of this project.
-	Insert in the routes folder the routes.csv file found in the /static_files/routes/ folder of this project.
+   * Insert in the locations folder the locations.csv file found in the /static_files/locations/ folder of this project.
+   * Insert in the routes folder the routes.csv file found in the /static_files/routes/ folder of this project.
 5. Change the read policy of the Athena query results bucket according to your preferences, that is where the final results will be stored.
 
 ### AWS Athena
 6. Create an AWS Athena database.
 7. Create three tables using the three queries found in the /athena/create_table.md file of this project.
-	Modify the LOCATION query line by replacing the square brackets with the name of the respective bucket you create.
-	ex. LOCATION 's3://[ NAME OF THE BUCKET FOR THE DATA INGESTION FEED ]/' becomes LOCATION 's3://stops-feed/', where stops-feed is the name of the bucket.
+   * Modify the LOCATION query line by replacing the square brackets with the name of the respective bucket you create.
+   * ex. LOCATION 's3://[ NAME OF THE BUCKET FOR THE DATA INGESTION FEED ]/' becomes LOCATION 's3://stops-feed/', where stops-feed is the name of the bucket.
 
 ### Data ingestion AWS Lambda Function
 8. Create a Lambda Function from the AWS Management Console, with Python 3.8 as Runtime.
 9. In the Lambda Function page, in the Permissions tab, click on the Execution Roles:
-	Attach one policy to grant the Lambda S3 Access permissions and one policy to grant it Athena Access permissions.
+   * Attach one policy to grant the Lambda S3 Access permissions and one policy to grant it Athena Access permissions.
 10. Delete the code found in lambda_function.py found in the Function Code windows found in the Lambda Function page.	
 11. Copy and paste the code found in /lambda_functions/lambda_function.py file of this project into the Function Code windows found in the Lambda Function page.	
 12. From the AWS Lambda page, click on Layers found in the menu on the left.
@@ -36,26 +36,26 @@
 ![layer menu](https://i.imgur.com/xqr1LCS.png)
 17. Choose Add Layer -> Custom Layer, and add the two Layers you just created.
 18. From the main page of the Lambda function, set these four environment variables:
-	ATHENA_DB: [name of your Athena DB]
-        BUCKET_NAME = [name of the bucket used for data ingestion]
-        ATHENA_TABLE = stops-feed
-        TRIP_UPDATES_FEED_URL = https://romamobilita.it/sites/default/files/rome_rtgtfs_trip_updates_feed.pb
+   * ATHENA_DB: [name of your Athena DB]
+   * BUCKET_NAME = [name of the bucket used for data ingestion]
+   * ATHENA_TABLE = stops-feed
+   * TRIP_UPDATES_FEED_URL = https://romamobilita.it/sites/default/files/rome_rtgtfs_trip_updates_feed.pb
 ![lambda env](https://i.imgur.com/mxbU6mE.png)        
 
 ### Elaboration results AWS Lambda Function
 19. Create a Lambda Function from the AWS Management Console, with Python 3.8 as Runtime.
 20. In the Lambda Function page, in the Permissions tab, click on the Execution Roles:
-	Attach one policy to grant the Lambda S3 Access permissions.
+    * Attach one policy to grant the Lambda S3 Access permissions.
 21. Delete the code found in lambda_function.py found in the Function Code windows found in the Lambda Function page.	
 22. Copy and paste the code found in /lambda_functions/results_manager.py file of this project into the Function Code windows found in the Lambda Function page.
 23. Set the following environment variable:
-	RESULTS_BUCKET = [name of the bucked used to store the Athena query results]
+    * RESULTS_BUCKET = [name of the bucked used to store the Athena query results]
 24. From the main page of the Lambda function, click the button "Add trigger" and insert the following parameters:
-	Select trigger = S3
-	Bucket = [name of the bucket used for data ingestion]
-	Event type = All object create events
-	Prefix = results/
-	Suffix = .csv
+    * Select trigger = S3
+    * Bucket = [name of the bucket used for data ingestion]
+    * Event type = All object create events
+    * Prefix = results/
+    * Suffix = .csv
 
 ## Run:
 After following the setup steps you just need to run first Lambda you created and retrieve the final results inside the bucket you created to store Athena query results.
