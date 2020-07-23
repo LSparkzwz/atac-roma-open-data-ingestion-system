@@ -19,6 +19,8 @@ def lambda_handler(event, context):
             s3.Object(results_bucket,'average_waiting_over_the_day.csv').copy_from(CopySource=bucket + "/" + key)
         elif 'longest_waiting_time' in key:
             s3.Object(results_bucket,'longest_waiting_time.csv').copy_from(CopySource=bucket + "/" + key)
+        elif 'average_waiting_by_location_by_routes' in key:
+            s3.Object(results_bucket,'average_waiting_by_location_by_routes.csv').copy_from(CopySource=bucket + "/" + key)
         elif 'average_waiting_by_location' in key:
             s3.Object(results_bucket,'average_waiting_by_location.csv').copy_from(CopySource=bucket + "/" + key)
 
