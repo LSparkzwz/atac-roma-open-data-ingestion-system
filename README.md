@@ -3,7 +3,7 @@
 0. This project is meant to be run in a Standard AWS Account (a free trial standard account is fine).
 1. Clone the repository.
 
-#AWS buckets
+# AWS buckets
 3. Create three S3 buckets: 
 	One for storing the data ingestion feed, 
 	One for storing the Athena query results,
@@ -13,13 +13,13 @@
 	Insert in the routes folder the routes.csv file found in the /static_files/routes/ folder of this project.
 5. Change the read policy of the Athena query results bucket according to your preferences, that is where the final results will be stored.
 
-#AWS Athena
+# AWS Athena
 6. Create an AWS Athena database.
 7. Create three tables using the three queries found in the /athena/create_table.md file of this project.
 	Modify the LOCATION query line by replacing the square brackets with the name of the respective bucket you create.
 	ex. LOCATION 's3://[ NAME OF THE BUCKET FOR THE DATA INGESTION FEED ]/' becomes LOCATION 's3://stops-feed/', where stops-feed is the name of the bucket.
 
-#Data ingestion AWS Lambda Function
+# Data ingestion AWS Lambda Function
 8. Create a Lambda Function from the AWS Management Console, with Python 3.8 as Runtime.
 9. In the Lambda Function page, in the Permissions tab, click on the Execution Roles:
 	Attach one policy to grant the Lambda S3 Access permissions and one policy to grant it Athena Access permissions.
@@ -41,7 +41,7 @@
         TRIP_UPDATES_FEED_URL = https://romamobilita.it/sites/default/files/rome_rtgtfs_trip_updates_feed.pb
 ![lambda env](https://i.imgur.com/mxbU6mE.png)        
 
-#Elaboration results AWS Lambda Function
+# Elaboration results AWS Lambda Function
 19. Create a Lambda Function from the AWS Management Console, with Python 3.8 as Runtime.
 20. In the Lambda Function page, in the Permissions tab, click on the Execution Roles:
 	Attach one policy to grant the Lambda S3 Access permissions.
@@ -56,7 +56,7 @@
 	Prefix = results/
 	Suffix = .csv
 
-##Run:
+## Run:
 After following the setup steps you just need to run first Lambda you created and retrieve the final results inside the bucket you created to store Athena query results.
 If you want the entire system to keep running on a fixed schedule you can use Amazon EventBridge to create a rule that runs the first Lambda on a fixed schedule.
 While the system runs by itself you just need to retrieve the results you find in the apposite bucket.
