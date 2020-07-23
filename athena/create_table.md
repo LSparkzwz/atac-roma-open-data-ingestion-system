@@ -26,7 +26,7 @@ ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
 WITH SERDEPROPERTIES ("separatorChar" = ",") 
 STORED AS INPUTFORMAT 'org.apache.hadoop.mapred.TextInputFormat' 
 OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
-LOCATION 's3://[ NAME OF THE BUCKET FOR STATIC FILES ]/locations'
+LOCATION 's3://[ NAME OF THE BUCKET FOR STATIC FILES ]/locations/'
 TBLPROPERTIES ('has_encrypted_data'='false')
 
 ###################################################################################################
@@ -40,6 +40,6 @@ ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
 WITH SERDEPROPERTIES ("separatorChar" = ",") 
 STORED AS INPUTFORMAT 'org.apache.hadoop.mapred.TextInputFormat' 
 OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
-LOCATION 's3://[ NAME OF THE BUCKET FOR STATIC FILES ]/routes'
+LOCATION 's3://[ NAME OF THE BUCKET FOR STATIC FILES ]/routes/'
 TBLPROPERTIES ('has_encrypted_data'='false')
 
