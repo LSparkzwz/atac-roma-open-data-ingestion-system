@@ -7,6 +7,8 @@ This project has been developed using [ATAC-Monitor](http://www.atacmonitor.com/
 
 You can visualize an example of the results of the data elaboration [here](https://lsparkzwz.github.io/atacmonitor/), under Average waiting minutes, Longest waiting time and Average waiting time by Location and Waiting times divided by Rome districts and neighborhoods.
 
+The queries used to elaborate the data can be found in '/lambda functions/layers/updates_feed/python/queries.py'.
+
 ### Setup:
 0. This project is meant to be run in a Standard AWS Account (a free trial standard account is fine).
 1. Clone the repository.
