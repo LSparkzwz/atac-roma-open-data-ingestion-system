@@ -44,7 +44,7 @@ You can visualize an example of the results of the data elaboration [here](https
 ![layer menu](https://i.imgur.com/xqr1LCS.png)
 17. Choose Add Layer -> Custom Layer, and add the two Layers you just created.
 18. From the main page of the Lambda function, set these four environment variables:
-   * ATHENA_DB: [name of your Athena DB]
+   * ATHENA_DB = [name of your Athena DB]
    * BUCKET_NAME = [name of the bucket used for data ingestion]
    * ATHENA_TABLE = stops-feed
    * TRIP_UPDATES_FEED_URL = https://romamobilita.it/sites/default/files/rome_rtgtfs_trip_updates_feed.pb
