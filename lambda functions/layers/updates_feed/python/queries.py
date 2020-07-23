@@ -26,13 +26,13 @@ def average_waiting_times_by_location(athena):
     FROM w LEFT OUTER JOIN n \
     ON w.stop_id = n.stop_id \
     GROUP BY n.location'
-    output = 'average_waiting_by_location'
+    output = 'average_waiting_by_location/'
     execute_query(athena,query,output)
 
 def longest_waiting_time(athena):
     query = 'SELECT max(waiting_time) as waiting_time \
     FROM "stops_feed"."stops_feed"'
-    output = 'longest_waiting_time'
+    output = 'longest_waiting_time/'
     execute_query(athena,query,output)
 
 def execute_query(athena,query,output):

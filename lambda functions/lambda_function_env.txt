@@ -1,10 +1,7 @@
 #Lambda evironment variables for lambda_function.py
 
-CASSANDRA_CLUSTER : the url of your cluster
-CASSANDRA_USERNAME : the username of the account that can manage the cluster
-CASSANDRA_PASSWORD : the password of the account that can manage the cluster
-CASSANDRA_PORT : post of the cluster, default = 9142
-CASSANDRA_PREP_VALUES : the VALUES (?,?,...) in the prepared statement for stops.py, default = (?,?,?,?)
-CASSANDRA_ROW : the Cassandra table layout for stops.py, default = (stop_id,route_id,waiting_time,timestamp)
-CASSANDRA_TABLE : Cassandra table for stops.py, default = atacmonitor_keyspace.stops
-TRIP_UPDATES_FEED_URL : url of the feed for trip_updates_feed, default = https://romamobilita.it/sites/default/files/rome_rtgtfs_trip_updates_feed.pb
+ATHENA_DB = name of your Athena DB
+BUCKET_NAME = name of the bucket used for data ingestion
+
+ATHENA_TABLE = stops-feed
+TRIP_UPDATES_FEED_URL = https://romamobilita.it/sites/default/files/rome_rtgtfs_trip_updates_feed.pb
