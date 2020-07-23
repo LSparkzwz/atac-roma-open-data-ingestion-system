@@ -5,9 +5,9 @@
 
 ### AWS buckets
 3. Create three S3 buckets: 
- -One for storing the data ingestion feed, 
- -One for storing the Athena query results,
- -One for storing static files.
+-One for storing the data ingestion feed, 
+-One for storing the Athena query results,
+-One for storing static files.
 	
 4. In the root of the static files bucket create two folders: locations and routes,
 	Insert in the locations folder the locations.csv file found in the /static_files/locations/ folder of this project.
