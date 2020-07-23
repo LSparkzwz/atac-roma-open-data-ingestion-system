@@ -34,7 +34,7 @@ def get_stops(feed, current_time):
                 else:
                     arrival_time = stop_time_update.arrival.time
                     waiting_time = arrival_time - current_time
-                    if waiting_time > 0:
+                    if waiting_time > 0 and waiting_time < 18000:
                         stop_id = str(stop_time_update.stop_id)
                         key = stop_id + str(route_id)
                         if key in stops:
@@ -59,13 +59,15 @@ def insert_stops(stop_feed, current_time, s3, athena):
     bucket = os.environ['BUCKET_NAME']
     key = "date=" +  date + "/hour=" + hour + "/" + str(current_time) + ".csv"
     s3.Object(bucket , key).put(Body=open('/tmp/stops_feed.csv', 'rb'))
-    
+
+    table = os.environ['ATHENA_TABLE']
+
     queryStart = athena.start_query_execution(
-        QueryString='ALTER TABLE my_data ADD PARTITION (date = ' + date + ',hour = ' + hour + ' ) LOCATION \'s3://' + os.environ['BUCKET_NAME'] + '/date=' + date + '/hour=' + hour + '/\'',
+        QueryString='ALTER TABLE ' + table + ' ADD PARTITION (date = \'' + date + '\',hour = ' + hour + ' ) LOCATION \'s3://' + bucket + '/date=' + date + '/hour=' + hour + '/\'',
         QueryExecutionContext={
             'Database': os.environ['ATHENA_DB']
         },
         ResultConfiguration={
-            'OutputLocation': 's3://' + os.environ['BUCKET_NAME'] + '/results/' + output,
+            'OutputLocation': 's3://' + bucket + '/results/',
         }
     )

@@ -10,7 +10,7 @@ def average_waiting_times_by_line(athena):
     FROM "stops_feed"."stops_feed" \
     GROUP BY route_id ), \
     r AS( SELECT * FROM "stops_feed"."routes" ) \
-    SELECT l.route_id, l.waiting_time, r.route_name \
+    SELECT r.route_name, l.waiting_time \
     FROM l LEFT OUTER JOIN r \
     ON l.route_id = r.route_id'
     output = 'average_waiting_minutes/'
