@@ -28,7 +28,7 @@ The queries used to elaborate the data can be found in '/lambda functions/layers
 6. Create an AWS Athena database.
 7. Create three tables using the three queries found in the /athena/create_table.md file of this project.
    * Modify the LOCATION query line by replacing the square brackets with the name of the respective bucket you create.
-   * ex. LOCATION 's3://[ NAME OF THE BUCKET FOR THE DATA INGESTION FEED ]/' becomes LOCATION 's3://stops-feed/', where stops-feed is the name of the bucket.
+   * ex. "LOCATION 's3://[ NAME OF THE BUCKET FOR THE DATA INGESTION FEED ]/'" becomes "LOCATION 's3://stops-feed/'", where stops-feed is the name of the bucket.
 
 ### Data ingestion AWS Lambda Function
 8. Create a Lambda Function from the AWS Management Console, with Python 3.8 as Runtime.
