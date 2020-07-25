@@ -15,7 +15,6 @@ TBLPROPERTIES ('has_encrypted_data'='false')
 
 CREATE EXTERNAL TABLE locations (
   stop_id string,
-  route_id int,
   stop_name string,
   lat float,
   lon float,
