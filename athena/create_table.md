@@ -19,8 +19,7 @@ CREATE EXTERNAL TABLE locations (
   stop_name string,
   lat float,
   lon float,
-  location string,
-  
+  location string
 )
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
 WITH SERDEPROPERTIES ("separatorChar" = ",") 
@@ -33,8 +32,7 @@ TBLPROPERTIES ('has_encrypted_data'='false')
 
 CREATE EXTERNAL TABLE routes (
   route_id int,
-  route_name string,
-  
+  route_name string
 )
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
 WITH SERDEPROPERTIES ("separatorChar" = ",") 
