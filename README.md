@@ -5,7 +5,7 @@ The open data is given in real time by [Atac Roma](https://romamobilita.it/it/te
 
 This project has been developed using [ATAC-Monitor](http://www.atacmonitor.com/) as an example of data ingestion infrastructure.
 
-You can visualize an example of the results of the data elaboration [here](https://lsparkzwz.github.io/atacmonitor/), under Average waiting minutes, Longest waiting time and Average waiting time by Location and Waiting times divided by Rome districts and neighborhoods.
+The results obtained from the data ingestion and analysis represent: Average waiting minutes, Longest waiting time and Average waiting time by Location and Waiting times divided by Rome districts and neighborhoods.
 
 The queries used to elaborate the data can be found in '/lambda functions/layers/updates_feed/python/queries.py'.
 
