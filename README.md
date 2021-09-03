@@ -1,4 +1,6 @@
 ## Atac Roma open data ingestion system
+Detailed paper (in Italian): [Link](https://github.com/LSparkzwz/atac-roma-open-data-ingestion-system/blob/master/paper-ita.pdf).
+
 Data ingestion system to analyze the status of public transports in Rome.
 
 The open data is given in real time by [Atac Roma](https://romamobilita.it/it/tecnologie/open-data).
